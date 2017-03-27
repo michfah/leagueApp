@@ -1,0 +1,16 @@
+<h2>{{ club.club }}'s Squad</h2>
+<br />
+<table class="table table-striped">
+    <thead class="thead-inverse">
+        <tr>
+            <th style="width: 10px;">#</th>
+            <th ng-click="doSort('name')">Name</th>
+            <th ng-click="doSort('position')">Position</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="player in club.players | orderBy:sortBy:reverse" class="repeat-animation">
+        <td style="width: 10px;">{{ player.id }}</td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.position }}</td>
+    </tr>
+</table>
