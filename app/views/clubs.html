@@ -1,0 +1,30 @@
+<h2 class="text-justify"><span style="float: left"><img ng-src="{{ loi }}" /></span> {{ appSettings.title }} <span style="float: right"><img ng-src="{{ logo }}" /></span></h2>
+<br /><br />
+
+Filter: <input type="text" ng-model="clubFilter.club" />
+<br /><br />
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th ng-click="doSort('club')">Club</th>
+            <th ng-click="doSort('location')">Location</th>
+            <th ng-click="doSort('stadium')">Stadium</th>
+            <th ng-click="doSort('capacity')">Capacity</th>
+            <th ng-click="doSort('founded')">Founded</th>
+            <th ng-click="doSort('manager')">Manager</th>
+            <th> 2017 Squad</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="team in clubs | filter:clubFilter | orderBy:sortBy:reverse" class="repeat-animation">
+        <td><img ng-src="{{ team.image }}" /> {{ team.club }}</td>
+        <td>{{ team.location }}</td>
+        <td>{{ team.stadium }}</td>
+        <td>{{ team.capacity }}</td>
+        <td>{{ team.founded }}</td>
+        <td>{{ team.manager }}</td>
+        <td><a href="#/players/{{ team.id }}">View Squad</a></td>
+<!--        <td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteCustomer(cust.id)"></span></td>-->
+    </tr>
+</table>
+<br /><br />
+<footer>Version: {{ appSettings.version }} </footer>

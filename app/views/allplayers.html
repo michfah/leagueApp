@@ -1,0 +1,14 @@
+<h2>2017 Season Players</h2>
+<br />
+Filter: <input type="text" ng-model="playerFilter.name" />
+<br /><br />
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+    </tr>
+    <tr ng-repeat="player in players | filter:playerFilter | orderBy:'name'" class="repeat-animation">
+        <td>{{ player.name }}</td>
+        <td>{{ player.position }}</td>
+    </tr>
+</table>
